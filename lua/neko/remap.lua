@@ -1,10 +1,10 @@
 -- General remaps and shortcuts
 vim.keymap.set('n', '<leader>e' , '<cmd>:Oil<CR>'               , { desc = 'Open file manager' })
-vim.keymap.set('n', '<leader>t' , '<cmd>:ter<CR>'               , { desc = 'Open terminal mode' })
+vim.keymap.set('n', '<leader>t' , ':hor ter '                   , { desc = 'Open terminal mode' })
 vim.keymap.set('n', '<leader>f' , ':find '                      , { desc = 'Find file shortcut' })
 vim.keymap.set('n', '<leader>w' , '<cmd>:w<CR>'                 , { desc = 'Save buffer' })
 vim.keymap.set('n', '<leader>q' , '<cmd>:q<CR>'                 , { desc = 'Close buffer' })
-vim.keymap.set('n', '<leader>n' , '<cmd>:tabnew<CR>'            , { desc = 'Create a new tab' })
+vim.keymap.set('n', '<leader>n' , '<cmd>:$tabnew<CR>'            , { desc = 'Create a new tab' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.setqflist      , { desc = 'Open LSP diagnostics quickfix list' })
 vim.keymap.set('n', '<leader>d' , vim.diagnostic.open_float     , { desc = 'Open LSP diagnostics float window' })
 vim.keymap.set('n', '<leader>x' , '<cmd>:ToggleQuickFixList<CR>', { desc = 'Toggle the quickfix list' })
@@ -18,14 +18,13 @@ vim.keymap.set({"n", "v"}, "-", "$")
 vim.cmd("cabbrev vgrep vimgrep")
 
 -- Move between tabs
-vim.keymap.set("n", "<M-h>", "gT"               , { desc = "Move to the previous tab" })
-vim.keymap.set("n", "<M-j>", "<cmd>tabmove+<CR>", { desc = "Increase tab index position" })
-vim.keymap.set("n", "<M-k>", "<cmd>tabmove-<CR>", { desc = "Decrease tab index position" })
-vim.keymap.set("n", "<M-l>", "gt"               , { desc = "Move to the next tab" })
+vim.keymap.set("n", "<leader>o", "tabmove+<CR>", { desc = "Increase tab index position" })
+vim.keymap.set("n", "<leader>i", "tabmove-<CR>", { desc = "Decrease tab index position" })
+vim.keymap.set("n", "<leader>0", ":$tabnext<CR>")
 
--- Set <M-6> ... <M-0> to open tabs indexed 1 ... 5
-for i = 1, 5 do
-    local keymap  = string.format("<M-%d>", (i + 5) % 10)
+-- Set <leader>1 ... <leader>9 to open tabs indexed 1 ... 9
+for i = 1, 9 do
+    local keymap  = string.format("<leader>%d", i)
     local command = string.format("%dgt", i)
 
     vim.keymap.set("n", keymap, command)
