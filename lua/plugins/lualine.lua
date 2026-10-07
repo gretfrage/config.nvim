@@ -7,6 +7,7 @@ local plugin = require 'lualine'
 plugin.setup({
     options = {
         disabled_filetypes = { "no-neck-pain" },
+        globalstatus = true,
     },
 })
 

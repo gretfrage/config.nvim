@@ -28,5 +28,6 @@
     "editor.wordWrap": "off",
 
     // Themes
-    "workbench.colorTheme": "Hyper Term Black"
+    "workbench.colorTheme": "Hyper Term Black",
+    "git.openRepositoryInParentFolders": "never"
 }
