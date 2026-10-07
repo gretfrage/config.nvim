@@ -19,11 +19,12 @@ completion.setup({
   keymap = {
     preset = 'default',
   },
+  cmdline = { enabled = false },
   appearance = {
     nerd_font_variant = 'mono',
   },
   completion = {
-    documentation = { auto_show = false, auto_show_delay_ms = 500 },
+    documentation = { auto_show = false },
   },
   sources = {
     default = { 'lsp', 'path', 'snippets' },
